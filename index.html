@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flashcards - Roxo e Branco</title>
+  <!-- Fonte estilosa -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Rubik Glitch', sans-serif;
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .flashcard-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .flashcard {
+      width: 320px;
+      height: 200px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #8000ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      position: relative;
+    }
+
+    .flashcard.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 14px;
+      padding: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .front {
+      background-color: #8000ff;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .back {
+      background-color: white;
+      color: #8000ff;
+      border: 2px solid #8000ff;
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flashcard-container">
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <p>Quais são os oceanos existentes?</p>
+      </div>
+      <div class="back">
+        <p>Pacífico, Atlântico, Índico, Ártico e Antártico</p>
+      </div>
+    </div>
+
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <p>Quanto é 3 ao quadrado + 5?</p>
+      </div>
+      <div class="back">
+        <p>14</p>
+      </div>
+    </div>
+
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <p>Como se diz "gato" em inglês?</p>
+      </div>
+      <div class="back">
+        <p>Cat</p>
+      </div>
+    </div>
+
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <p>Quais os nomes das pessoas que fizeram o trabalho?</p>
+      </div>
+      <div class="back">
+        <p>Ana Júlia, Evellyn e Julia</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function flipCard(card) {
+      card.classList.toggle('flipped');
+    }
+  </script>
+
+</body>
+</html>
